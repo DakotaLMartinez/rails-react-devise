@@ -7,7 +7,11 @@ class PostsController < ApplicationController
 
   def create 
     if authenticated? 
-      binding.pry
+      if post = current_user.posts.create(post_params)
+        render json: post, status: :created 
+      else 
+        render json: post.errors, status: 400
+      end
     end
   end
 
@@ -22,6 +26,6 @@ class PostsController < ApplicationController
   end
 
   def post_params 
-
+    params.require(:post).permit(:title, :content)
   end
 end
