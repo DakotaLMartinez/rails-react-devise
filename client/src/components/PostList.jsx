@@ -1,5 +1,6 @@
 import React, { Component }               from 'react'
 import PropTypes                          from 'prop-types'
+import { Link }                           from 'react-router-dom'
 
 class PostList extends Component {
 
@@ -43,6 +44,7 @@ class PostList extends Component {
       <div>
         PostList Component
         {this.renderPosts()}
+        <Link to="/posts/new">Add a New Post</Link>
       </div>
     )
   }

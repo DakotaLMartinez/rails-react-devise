@@ -1,13 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  HashRouter as Router, 
+  Route
+} from 'react-router-dom';
 import PostList from './components/PostList';
+import NewPost from './components/NewPost';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <PostList />
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={PostList} />
+        <Route exact path="/posts/new" component={NewPost} />
+      </div>
+    </Router>
   );
 }
 
